@@ -236,7 +236,7 @@
       <span>
         Web Developer<br/>
         App Developer<br/>
-        
+        Software Engineer
       </span>
     </div>
     <p>I excel at crafting elegant digital experiences and I am proficient in various programming languages and technologies.</p>
@@ -248,7 +248,7 @@
     </div>
   </div>
   <div class="right">
-    <img src="https://via.placeholder.com/300" alt="Profile Image" class="profile-img" />
+    <img src="karthick" alt="Profile Image" class="profile-img" />
   </div>
 </div>
 
@@ -261,12 +261,33 @@
     background: { color: "#0A192F" },
     fpsLimit: 60,
     particles: {
-      number: { value: 80 },
+      number: { value: 120 },
       color: { value: "#ffffff" },
       shape: { type: "circle" },
-      opacity: { value: 0.5 },
-      size: { value: 2 },
-      move: { enable: true, speed: 1 }
+      opacity: {
+        value: 0.6,
+        random: true,
+        anim: { enable: true, speed: 0.5, opacity_min: 0.2, sync: false }
+      },
+      size: {
+        value: 2,
+        random: true
+      },
+      move: {
+        enable: true,
+        speed: 0.4,
+        direction: "none",
+        outModes: "out"
+      }
+    },
+    interactivity: {
+      detectsOn: "canvas",
+      events: {
+        onHover: { enable: true, mode: "repulse" }
+      },
+      modes: {
+        repulse: { distance: 80, duration: 0.4 }
+      }
     }
   });
 </script>
