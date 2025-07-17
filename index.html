@@ -156,19 +156,24 @@
       align-items: center;
     }
 
-    .profile-img {
+    .profile-wrapper {
       border-radius: 50%;
       border: 5px dashed #FFA500;
       padding: 5px;
-      width: 280px;
-      height: 280px;
-      object-fit: cover;
-      animation: rotate 8s linear infinite;
+      display: inline-block;
+      animation: float 4s ease-in-out infinite;
     }
 
-    @keyframes rotate {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+    .profile-img {
+      border-radius: 50%;
+      width: 270px;
+      height: 270px;
+      object-fit: cover;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
     }
 
     .custom-cursor {
@@ -248,7 +253,9 @@
     </div>
   </div>
   <div class="right">
-    <img src="karthick.jpg" alt="Profile Image" class="profile-img" />
+    <div class="profile-wrapper">
+      <img src="karthick.jpg" alt="Profile Image" class="profile-img" />
+    </div>
   </div>
 </div>
 
