@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Karthick| Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Rajdhani:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      cursor: none;
+    }
+
+    body {
+      background-color: #0A192F;
+      color: #FFA500;
+      font-family: 'Rajdhani', sans-serif;
+      overflow-x: hidden;
+    }
+
+    #tsparticles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 10vw;
+      background-color: transparent;
+      position: relative;
+      z-index: 1;
+    }
+
+    nav .logo {
+      font-size: 1.8rem;
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #FFA500;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #fff;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 50px 10vw;
+      min-height: calc(100vh - 80px);
+    }
+
+    .left {
+      flex: 1;
+      padding-right: 5vw;
+    }
+
+    .left h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .left h2 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #FFA500;
+    }
+
+    .role-rotate {
+      font-size: 1.5rem;
+      height: 40px;
+      color: #fff;
+      overflow: hidden;
+      position: relative;
+      font-weight: 700;
+    }
+
+    .role-rotate span {
+      display: inline-block;
+      animation: roleChange 6s infinite;
+      white-space: nowrap;
+    }
+
+    @keyframes roleChange {
+      0% { transform: translateY(0%); }
+      33% { transform: translateY(-100%); }
+      66% { transform: translateY(-200%); }
+      100% { transform: translateY(0%); }
+    }
+
+    .left p {
+      color: #fff;
+      font-size: 1rem;
+      max-width: 500px;
+      margin: 20px 0;
+      line-height: 1.6;
+    }
+
+    .btn {
+      background-color: #FFA500;
+      color: #0A192F;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 25px;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+
+    .socials i {
+      color: #FFA500;
+      font-size: 1.5rem;
+      margin-right: 15px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .socials i:hover {
+      transform: scale(1.2);
+    }
+
+    .right {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .profile-img {
+      border-radius: 50%;
+      border: 5px dashed #FFA500;
+      padding: 5px;
+      width: 280px;
+      height: 280px;
+      object-fit: cover;
+      animation: rotate 8s linear infinite;
+    }
+
+    @keyframes rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .custom-cursor {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #FFA500;
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      transition: transform 0.1s ease;
+      z-index: 10000;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .container {
+        flex-direction: column;
+        padding: 40px 20px;
+        text-align: center;
+      }
+
+      .left {
+        padding: 0;
+      }
+
+      .right {
+        margin-top: 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div id="tsparticles"></div>
+
+<nav>
+  <div class="logo">KARTHICK.</div>
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Services</a></li>
+    <li><a href="#">Resume</a></li>
+    <li><a href="#">Work</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="container">
+  <div class="left">
+    <h1>Hello I'm</h1>
+    <h2>Karthick</h2>
+    <div class="role-rotate">
+      <span>
+        Web Developer<br/>
+        App Developer<br/>
+        
+      </span>
+    </div>
+    <p>I excel at crafting elegant digital experiences and I am proficient in various programming languages and technologies.</p>
+    <a href="#" class="btn">Download CV</a>
+    <div class="socials">
+      <i class="fab fa-github"></i>
+      <i class="fab fa-linkedin"></i>
+      <i class="fab fa-twitter"></i>
+    </div>
+  </div>
+  <div class="right">
+    <img src="https://via.placeholder.com/300" alt="Profile Image" class="profile-img" />
+  </div>
+</div>
+
+<div class="custom-cursor" id="cursor"></div>
+
+<!-- tsParticles -->
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+<script>
+  tsParticles.load("tsparticles", {
+    background: { color: "#0A192F" },
+    fpsLimit: 60,
+    particles: {
+      number: { value: 80 },
+      color: { value: "#ffffff" },
+      shape: { type: "circle" },
+      opacity: { value: 0.5 },
+      size: { value: 2 },
+      move: { enable: true, speed: 1 }
+    }
+  });
+</script>
+
+<!-- Magic Cursor -->
+<script>
+  const cursor = document.getElementById('cursor');
+  document.addEventListener('mousemove', (e) => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+  });
+</script>
+
+</body>
+</html>
