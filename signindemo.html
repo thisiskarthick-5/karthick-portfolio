@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Neon Blue Sign-In Page</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body, html {
+      height: 100%;
+      width: 100%;
+      background: #0a0f1d;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    section {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(30px, 1fr));
+      grid-auto-rows: 30px;
+      width: 100vw;
+      height: 100vh;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+
+    section span {
+      display: block;
+      background: #0d152c;
+      border: 1px solid #112244;
+      transition: background 1.5s;
+    }
+
+    section span.active {
+      background: #00f7ff;
+      transition: background 0s;
+    }
+
+    .signin-box {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      background: #111b30;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 15px 35px rgba(0, 247, 255, 0.2);
+      width: 300px;
+      text-align: center;
+    }
+
+    .signin-box h2 {
+      color: #00f7ff;
+      margin-bottom: 20px;
+    }
+
+    .signin-box input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      background: #1d2c4d;
+      border: none;
+      color: white;
+      border-radius: 5px;
+    }
+
+    .signin-box a {
+      display: block;
+      color: #ccc;
+      text-align: left;
+      font-size: 0.9em;
+      margin-top: 5px;
+    }
+
+    .signin-box a.signup {
+      color: #00f7ff;
+      text-align: right;
+      float: right;
+    }
+
+    .signin-box button {
+      width: 100%;
+      padding: 10px;
+      background: #00f7ff;
+      border: none;
+      color: #000;
+      margin-top: 20px;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <section id="grid"></section>
+
+  <div class="signin-box">
+    <h2>SIGN IN</h2>
+    <input type="text" placeholder="Username">
+    <input type="password" placeholder="Password">
+    <a href="#">Forgot Password</a>
+    <a href="#" class="signup">Signup</a>
+    <button>Login</button>
+  </div>
+
+  <script>
+    const grid = document.getElementById('grid');
+    const numCols = Math.floor(window.innerWidth / 30);
+    const numRows = Math.floor(window.innerHeight / 30);
+
+    for (let i = 0; i < numCols * numRows; i++) {
+      const span = document.createElement('span');
+      grid.appendChild(span);
+    }
+
+    const spans = Array.from(grid.children);
+
+    document.addEventListener('mousemove', (e) => {
+      const mouseX = e.clientX;
+      const mouseY = e.clientY;
+
+      spans.forEach(span => {
+        const rect = span.getBoundingClientRect();
+        const dist = Math.hypot(
+          rect.x + rect.width / 2 - mouseX,
+          rect.y + rect.height / 2 - mouseY
+        );
+
+        if (dist < 100) {
+          span.classList.add('active');
+          clearTimeout(span.timeout);
+          span.timeout = setTimeout(() => {
+            span.classList.remove('active');
+          }, 300);
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
