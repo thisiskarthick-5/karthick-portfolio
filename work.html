@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Orbit Cards Animation</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .orbit-container {
+      position: relative;
+      width: 600px;
+      height: 400px;
+      transform-style: preserve-3d;
+      perspective: 1000px;
+    }
+
+    .card {
+      position: absolute;
+      width: 180px;
+      height: 260px;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s ease;
+      background-color: #fff;
+    }
+
+    .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="orbit-container">
+    <div class="card"><img src="k" alt="Card 1"></div>
+    <div class="card"><img src="" alt="Card 2"></div>
+    <div class="card"><img src="" alt="Card 3"></div>
+    <div class="card"><img src="" alt="Card 4"></div>
+    <div class="card"><img src="" alt="Card 5"></div>
+  </div>
+
+  <script>
+    const cards = document.querySelectorAll(".card");
+    let angleOffset = 0;
+
+    function animate() {
+      angleOffset += 0.01;
+      const radius = 200;
+      const total = cards.length;
+
+      cards.forEach((card, i) => {
+        const angle = (i / total) * Math.PI * 2 + angleOffset;
+        const x = Math.cos(angle) * radius;
+        const y = Math.sin(angle) * radius * 0.5;
+
+        const scale = 1 + y / 400;
+
+        card.style.transform = `
+          translate(-50%, -50%)
+          translateX(${x}px)
+          translateY(${y}px)
+          scale(${scale})
+        `;
+        card.style.zIndex = Math.floor(100 + y);
+      });
+
+      requestAnimationFrame(animate);
+    }
+
+    // Center all cards initially
+    cards.forEach(card => {
+      card.style.left = "50%";
+      card.style.top = "50%";
+    });
+
+    animate();
+  </script>
+</body>
+</html>
