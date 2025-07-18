@@ -36,7 +36,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 30px 10vw;
+      padding: 10px 10vw;
       background-color: transparent;
       position: relative;
       z-index: 1;
@@ -46,6 +46,13 @@
       font-size: 1.8rem;
       font-family: 'Orbitron', sans-serif;
       font-weight: 700;
+    }
+
+    nav .menu-toggle {
+      display: none;
+      font-size: 1.8rem;
+      color: #FFA500;
+      cursor: pointer;
     }
 
     nav ul {
@@ -64,6 +71,27 @@
 
     nav ul li a:hover {
       color: #fff;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-wrap: wrap;
+      }
+
+      nav .menu-toggle {
+        display: block;
+      }
+
+      nav ul {
+        flex-direction: column;
+        width: 100%;
+        display: none;
+        margin-top: 10px;
+      }
+
+      nav ul.active {
+        display: flex;
+      }
     }
 
     .container {
@@ -166,8 +194,8 @@
 
     .profile-img {
       border-radius: 50%;
-      width: 270px;
-      height: 270px;
+      width: 300px;
+      height: 300px;
       object-fit: cover;
     }
 
@@ -191,17 +219,6 @@
     }
 
     @media (max-width: 768px) {
-      nav {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 20px;
-      }
-
-      nav ul {
-        flex-direction: column;
-        gap: 15px;
-      }
-
       .container {
         flex-direction: column;
         padding: 40px 20px;
@@ -224,11 +241,14 @@
 
 <nav>
   <div class="logo">KARTHICK.</div>
+  <div class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('active')">
+    <i class="fas fa-bars"></i>
+  </div>
   <ul>
-    <li><a href="index.html">Home</a></li>
+    <li><a href="#">Home</a></li>
     <li><a href="#">Services</a></li>
     <li><a href="#">Resume</a></li>
-    <li><a href="work.html">Work</a></li>
+    <li><a href="#">Work</a></li>
     <li><a href="#">Contact</a></li>
   </ul>
 </nav>
